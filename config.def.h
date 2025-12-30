@@ -102,9 +102,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 
-	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%") },
-	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%") },
-	{ 0, XF86XK_AudioMute,        spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ MODKEY, XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1dB && pkill -RTMIN+11 dwmblocks") },
+	{ MODKEY, XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1dB && pkill -RTMIN+11 dwmblocks") },
+	{ MODKEY, XK_F12,        spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+11 dwmblocks") },
 
 	{ MODKEY, XK_Delete, spawn, SHCMD("slock & sleep 1; xset dpms force off") },
 
